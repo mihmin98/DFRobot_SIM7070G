@@ -1,0 +1,56 @@
+#######################################
+# Syntax Coloring Map For DFRobot_SIM7070G
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_SIM7070G	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################	
+
+setBaudRate	KEYWORD2	
+init	KEYWORD2
+checkSignalQuality	KEYWORD2
+checkSIMStatus	KEYWORD2
+getRevision	KEYWORD2
+setNetMode	KEYWORD2
+attacthService	KEYWORD2
+bringupConnection	KEYWORD2
+openNetwork	KEYWORD2
+send	KEYWORD2
+recv	KEYWORD2
+closeNetwork	KEYWORD2
+turnON	KEYWORD2
+turnOFF	KEYWORD2
+initPos	KEYWORD2
+getTime	KEYWORD2
+getPosition	KEYWORD2
+getLatitude	KEYWORD2
+getLongitude	KEYWORD2
+mqttConnect	KEYWORD2
+mqttPublish	KEYWORD2
+mqttSubscribe	KEYWORD2
+mqttUnsubscribe	KEYWORD2
+mqttRecv	KEYWORD2
+httpInit	KEYWORD2
+httpConnect	KEYWORD2
+httpPost	KEYWORD2
+httpGet	KEYWORD2
+httpDisconnect	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+eGPRS	LITERAL1
+eUDP	LITERAL1
+eTCP	LITERAL1
+eNB	LITERAL1
+
+eCLOSED LITERAL1
+eCMD	LITERAL1
+eDATA	LITERAL1
