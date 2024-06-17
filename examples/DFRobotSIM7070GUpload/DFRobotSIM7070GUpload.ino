@@ -18,13 +18,9 @@
 
  //Login website (http://iot.dfrobot.com.cn) to register an account ,fill the following information based on your account
 #define serverIP        "iot.dfrobot.com.cn"
-// #define IOT_USERNAME    " USER   NAME "
-// #define IOT_KEY         " PASSWORD    "
-// #define IOT_TOPIC       " TOPIC       "
-// #define serverIP        "8.135.10.183"
-#define IOT_USERNAME    "Al60cXyIR"
-#define IOT_KEY         "A_eA5XsIgz"
-#define IOT_TOPIC       "uNE1cuySR"
+#define IOT_USERNAME    " USER   NAME "
+#define IOT_KEY         " PASSWORD    "
+#define IOT_TOPIC       " TOPIC       "
 #define IOT_CLIENT      "dfrobot"
 
 #define PIN_TX          7
@@ -63,6 +59,17 @@ void setup()
     while (1);
   }
 
+  Serial.println("Init positioning function......");
+  while (1) {
+    if (sim7070g.initPos()) {
+      Serial.println("Positioning function initialized");
+      break;
+    } else {
+      Serial.println("Fail to init positioning function");
+      delay(1000);
+    }
+  }
+
   Serial.println("Set net mode......");
   while (1) {
     if (sim7070g.setNetMode(sim7070g.eGPRS)) {                              //Set GPRS mode
@@ -88,17 +95,6 @@ void setup()
       break;
     } else {
       Serial.println("Fail to Attach service");
-      delay(1000);
-    }
-  }
-
-  Serial.println("Init positioning function......");
-  while (1) {
-    if (sim7070g.initPos()) {
-      Serial.println("Positioning function initialized");
-      break;
-    } else {
-      Serial.println("Fail to init positioning function");
       delay(1000);
     }
   }
@@ -151,6 +147,7 @@ void loop()
     return;
   }
   delay(200);
+
   Serial.println("Close connection......");
   if (sim7070g.closeNetwork()) {                                  //Close connection
     Serial.println("Close connection !");

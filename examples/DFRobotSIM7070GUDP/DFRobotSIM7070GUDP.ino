@@ -20,10 +20,9 @@
 
 #define serverIP    "112.74.93.163"
 #define serverPort   5232
-// #define serverIP    "8.135.10.183"
-// #define serverPort   55199
 #define PIN_TX       7
 #define PIN_RX       8
+
 SoftwareSerial       mySerial(PIN_RX, PIN_TX);
 DFRobot_SIM7070G         sim7070g(&mySerial);
 char                 sendData[100];
