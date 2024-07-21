@@ -317,9 +317,17 @@ public:
    */
   const char* getLongitude(void);
 
+  /**
+   * @fn getGmtTime
+   * @brief Get GMT Time
+   * @return GMT Time value (yyyyMMddHHmmss)
+   */
+  const char* getGmtTime(void);
+
 private:
-  char  _latitude[8];
-  char  _longitude[8];
+  char  _latitude[10];
+  char  _longitude[10];
+  char  _gmt_time[15];
   int   _mode_t = 0;
   long	_baudrate = 19200;
   Stream* _s;

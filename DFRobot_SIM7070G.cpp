@@ -620,9 +620,11 @@ bool DFRobot_SIM7070G::getPosition(void)
     return false;
   }
   if (getCommandCounter() == 4) {
+    position = strstr(posBuffer, ": 1,1");
+    memcpy(_gmt_time, position + 6, 14);
     position = strstr(posBuffer, ".000");
-    memcpy(_latitude, position + 5, 7);
-    memcpy(_longitude, position + 15, 7);
+    memcpy(_latitude, position + 5, 9);
+    memcpy(_longitude, position + 15, 9);
     setCommandCounter(5);
     return true;
   } else {
@@ -672,4 +674,14 @@ int DFRobot_SIM7070G::batteryPower(void)
   j = *(pBattery + 9) - 48;
   k = (i * 10) + j;
   return  k;
+}
+
+const char* DFRobot_SIM7070G::getGmtTime(void)
+{
+  if (getCommandCounter() >= 5) {
+    setCommandCounter(6);
+    return _gmt_time;
+  } else {
+    return "error";
+  }
 }
