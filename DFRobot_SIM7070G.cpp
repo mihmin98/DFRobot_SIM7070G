@@ -261,6 +261,68 @@ bool DFRobot_SIM7070G::initPos(void)
   }
 }
 
+bool DFRobot_SIM7070G::setGNSSPower(ePower power)
+{
+  const char* onCmd = F("AT+CGNSPWR=1\r\n");
+  const char* offCmd = F("AT+CGNSPWR=0\r\n");
+
+  char *cmd;
+  switch (power)
+  {
+  case eON:
+    cmd = onCmd;
+    break;
+  case eOFF:
+    cmd = offCmd;
+    break;
+  default:
+    return false;
+  }
+
+  if (checkSendCmd(cmd, "OK")) {
+    delay(50);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+bool DFRobot_SIM7070G::setPhoneFunctionality(ePower power)
+{
+  const char* onCmd = F("AT+CFUN=1\r\n");
+  const char* offCmd = F("AT+CFUN=0\r\n");
+
+  char *cmd;
+  switch (power)
+  {
+  case eON:
+    cmd = onCmd;
+    break;
+  case eOFF:
+    cmd = offCmd;
+    break;
+  default:
+    return false;
+  }
+
+  if (checkSendCmd(cmd, "OK")) {
+    delay(50);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+bool DFRobot_SIM7070G::setTcpUdpIdentifier(void)
+{
+  if (checkSendCmd(F("AT+CACID=0\r\n"), "OK")) {
+    delay(50);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 bool DFRobot_SIM7070G::send(char* data)
 {
   char num[8] = { "\0" };

@@ -47,6 +47,15 @@ public:
     eNB,
   }eNet;
 
+  /**
+   * @enum ePower
+   * @brief Select power mode (on or off)
+   */
+  typedef enum {
+    eOFF,
+    eON
+  } ePower;
+
 public:
   /**
    * @fn DFRobot_SIM7070G
@@ -162,6 +171,39 @@ public:
    * @retval false Failed
    */
   bool initPos(void);
+
+  /**
+   * @fn setGNSSPower
+   * @brief Turns 7070G GNSS power supply on or off
+   * @param power  Choose power
+   * @n    OFF
+   * @n    ON 
+   * @return bool type, indicating the operation's success
+   * @retval true Success
+   * @retval false Failed
+   */
+  bool setGNSSPower(ePower power);
+
+  /**
+   * @fn setPhoneFunctionality
+   * @brief Turns 7070G phone functionality on or off
+   * @param power  Choose power
+   * @n    OFF
+   * @n    ON 
+   * @return bool type, indicating the operation's success
+   * @retval true Success
+   * @retval false Failed
+   */
+  bool setPhoneFunctionality(ePower power);
+
+  /**
+   * @fn setTcpUdpIdentifier
+   * @brief Set TCP/UDP identifer to 0
+   * @return bool type, indicating the operation's success
+   * @retval true Success
+   * @retval false Failed
+   */
+  bool setTcpUdpIdentifier(void);
 
   /**
    * @fn mqttConnect
