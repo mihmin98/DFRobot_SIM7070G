@@ -58,7 +58,7 @@ bool DFRobot_SIM7070G::setBaudRate(long rate)
         delay(200);
       }
     } else {
-      Serial.println("No such rate");
+      Serial.println(F("No such rate"));
       return false;
     }
   }
@@ -120,7 +120,7 @@ bool DFRobot_SIM7070G::setNetMode(eNet net)
       }
     }
   } else {
-    Serial.println("No such mode!");
+    Serial.println(F("No such mode!"));
   }
   return false;
 }
@@ -199,7 +199,7 @@ bool DFRobot_SIM7070G::openNetwork(eProtocol ptl, const char* host, uint16_t por
     sendCmd("AT+CAOPEN=0,0,\"UDP\",\"");
     // sendCmd("AT+CIPSTART=\"UDP\",\"");
   } else {
-    Serial.println("No such mode!");
+    Serial.println(F("No such mode!"));
     return false;
   }
   sendCmd(host);
