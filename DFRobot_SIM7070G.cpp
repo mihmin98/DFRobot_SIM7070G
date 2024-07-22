@@ -263,8 +263,8 @@ bool DFRobot_SIM7070G::initPos(void)
 
 bool DFRobot_SIM7070G::setGNSSPower(ePower power)
 {
-  const char* onCmd = F("AT+CGNSPWR=1\r\n");
-  const char* offCmd = F("AT+CGNSPWR=0\r\n");
+  const char* onCmd = "AT+CGNSPWR=1\r\n";
+  const char* offCmd = "AT+CGNSPWR=0\r\n";
 
   char *cmd;
   switch (power)
@@ -289,8 +289,8 @@ bool DFRobot_SIM7070G::setGNSSPower(ePower power)
 
 bool DFRobot_SIM7070G::setPhoneFunctionality(ePower power)
 {
-  const char* onCmd = F("AT+CFUN=1\r\n");
-  const char* offCmd = F("AT+CFUN=0\r\n");
+  const char* onCmd = "AT+CFUN=1\r\n";
+  const char* offCmd = "AT+CFUN=0\r\n";
 
   char *cmd;
   switch (power)
@@ -315,7 +315,7 @@ bool DFRobot_SIM7070G::setPhoneFunctionality(ePower power)
 
 bool DFRobot_SIM7070G::setTcpUdpIdentifier(void)
 {
-  if (checkSendCmd(F("AT+CACID=0\r\n"), "OK")) {
+  if (checkSendCmd("AT+CACID=0\r\n", "OK")) {
     delay(50);
     return true;
   } else {
